@@ -1,3 +1,5 @@
+export { ToDoList };
+
 // Skapar ett interdace för att definiera strukturen i ett todo-objekt
 interface ToDo {
   task: string;
