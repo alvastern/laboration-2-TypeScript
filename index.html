@@ -4,10 +4,42 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>laboration-2</title>
+    <title>Min ToDo</title>
   </head>
+
   <body>
-    <div id="app"></div>
+    <h1>Min ToDo</h1>
+
+    <section>
+      <h2>Lägg till ny uppgift</h2>
+
+      <form id="todo-form">
+        <div>
+          <label for="uppgift-titel">Uppgift:</label>
+          <input type="text" name="Uppgift" id="uppgift-titel" required>
+        </div>
+
+        <div>
+          <label for="prioritet">Prioritet:</label>
+          <select name="Prioritet" id="prioritet">
+            <option value="hög">1</option>
+            <option value="medel">2</option>
+            <option value="låg">3</option>
+          </select>
+        </div>
+
+        <div>
+          <button type="submit">Lägg till</button>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h2>ToDo lista</h2>
+
+      <ul id="todo-lista"></ul>
+    </section>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
