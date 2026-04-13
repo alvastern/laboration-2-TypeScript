@@ -1,4 +1,5 @@
 import { ToDoList } from "./todolist";
+import "../css/main.scss";
 
 const todoList = new ToDoList();
 
