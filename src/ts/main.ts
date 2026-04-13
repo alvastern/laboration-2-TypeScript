@@ -7,10 +7,12 @@ const form = document.getElementById("todo-form") as HTMLFormElement;
 const input = document.getElementById("uppgift-titel") as HTMLInputElement;
 const select = document.getElementById("prioritet") as HTMLSelectElement;
 const list = document.getElementById("todo-lista") as HTMLUListElement;
+const completedList = document.getElementById("avslutade-list") as HTMLUListElement;
 
 //Funktion för att visa todos
 function renderTodos() {
     list.innerHTML = "";
+    completedList.innerHTML = "";
 
     const todos = todoList.getTodos();
 
@@ -18,20 +20,34 @@ function renderTodos() {
         const li = document.createElement("li");
         li.textContent = `${todo.task} (prio ${todo.priority})`;
 
-        if (todo.completed) {
-            li.style.textDecoration = "line-through";
-        }
-
         const button = document.createElement("button");
         button.textContent = "Klar";
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Ta bort";
+
+        deleteButton.addEventListener("click", () => {
+            todoList.getTodos().splice(index, 1);
+            todoList.saveToLocalStorage();
+            renderTodos();
+        });
 
         button.addEventListener("click", () => {
             todoList.markTodoCompleted(index);
             renderTodos();
         });
 
-        li.appendChild(button);
-        list.appendChild(li);
+        if (!todo.completed) {
+            li.appendChild(button);
+        }
+
+        li.appendChild(deleteButton);
+
+        if (todo.completed) {
+            completedList.appendChild(li);
+        } else {
+            list.appendChild(li);
+        }
     });
 }
 
