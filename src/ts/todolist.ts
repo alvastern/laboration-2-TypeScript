@@ -19,12 +19,14 @@ class ToDoList {
 
   // En metod för att lägga till en ny punkt i listan
   addToDo(task: string, priority: number): boolean {
-    if (!task || priority < 1 || priority > 3) {
+    const trimmedTask = task.trim();
+
+    if (!trimmedTask || priority < 1 || priority > 3) {
       return false;
     }
 
     const newToDo: ToDo = {
-      task,
+      task: trimmedTask,
       completed: false,
       priority,
     };
