@@ -21,6 +21,7 @@ class ToDoList {
   addToDo(task: string, priority: number): boolean {
     const trimmedTask = task.trim();
 
+    // Validera att uppgiften inte är tom och att prioriteten är mellan 1 och 3
     if (!trimmedTask || priority < 1 || priority > 3) {
       return false;
     }

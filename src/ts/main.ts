@@ -17,25 +17,32 @@ function renderTodos() {
 
     const todos = todoList.getTodos();
 
+    // Loopar igenom alla todos och skapar listobjekt för varje punkt
     todos.forEach((todo, index) => {
+
+        // Skapa ett listobjekt för varje todo
         const li = document.createElement("li");
         li.classList.add("todo-item");
         li.textContent = `${todo.task} (prio ${todo.priority})`;
 
+        // Skapa en knapp för att markera som klar
         const button = document.createElement("button");
         button.classList.add("complete-button");
         button.textContent = "Klar";
 
+        // Skapa en knapp för att ta bort todo
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
         deleteButton.textContent = "Ta bort";
 
+        // Event listener för att ta bort todo
         deleteButton.addEventListener("click", () => {
             todoList.getTodos().splice(index, 1);
             todoList.saveToLocalStorage();
             renderTodos();
         });
 
+        // Event listener för att markera todo som klar
         button.addEventListener("click", () => {
             todoList.markTodoCompleted(index);
             renderTodos();
