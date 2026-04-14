@@ -1,5 +1,7 @@
 $green-color: rgb(152, 197, 134);
 $main-color: cornsilk;
+$font-weight: 350;
+$box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 
 body {
     background-color: $main-color;
@@ -11,11 +13,31 @@ body {
 header {
     background-color: $green-color;
     padding: 5vh 3vw;
+    $box-shadow: $box-shadow;
 }
 
 h1 {
     margin: 0;
     padding: 0;
     font-size: 3rem;
-    font-weight: 400;
+    font-weight: $font-weight;
+}
+
+h2, h3 {
+    margin: 3vh 3vw;
+    font-weight: $font-weight;
+}
+
+#uppgift-titel {
+    border-radius: 3rem;
+    box-shadow: $box-shadow;
+    padding: 0.5vh 0.5vw;
+    border: none;
+}
+
+#prioritet {
+    border-radius: 3rem;
+    box-shadow: $box-shadow;
+    padding: 0.5vh 0.5vw;
+    border: none;
 }

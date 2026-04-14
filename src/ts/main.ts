@@ -19,12 +19,15 @@ function renderTodos() {
 
     todos.forEach((todo, index) => {
         const li = document.createElement("li");
+        li.classList.add("todo-item");
         li.textContent = `${todo.task} (prio ${todo.priority})`;
 
         const button = document.createElement("button");
+        button.classList.add("complete-button");
         button.textContent = "Klar";
 
         const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
         deleteButton.textContent = "Ta bort";
 
         deleteButton.addEventListener("click", () => {

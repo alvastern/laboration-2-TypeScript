@@ -1,0 +1,51 @@
+@use "./base" as *;
+
+@mixin button-hover {
+    background-color: darken($green-color, 15%);
+}
+
+#add-button {
+    background-color: $green-color;
+    border: none;
+    padding: 1vh 2vw;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 2vh;
+    border-radius: 2rem;
+    font-weight: 500;
+    box-shadow: $box-shadow;
+}
+
+#add-button:hover {
+    @include button-hover;
+}
+
+.complete-button {
+    background-color: $green-color;
+    border: none;
+    padding: 0.5vh 1vw;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    box-shadow: $box-shadow;
+}
+
+.complete-button:hover {
+    @include button-hover;
+}
+
+.delete-button {
+    background-color: rgb(255, 99, 71);
+    border: none;
+    padding: 0.5vh 1vw;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    box-shadow: $box-shadow;
+}
+
+.delete-button:hover {
+    background-color: darken(rgb(255, 99, 71), 15%);
+}
